@@ -12,5 +12,5 @@ buildscript {
 }
 
 artifactoryRpm {
-	distributionDir = "target/rpm/nordic-epub3-dtbook-assembly/RPMS/noarch"
+	distributionDir = "./target/rpm/nordic-epub3-dtbook-assembly/RPMS/noarch"
 }
