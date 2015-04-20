@@ -16,5 +16,8 @@ buildscript {
 artifactoryRpm {
     stagingRepo = "mtm-utv"
     purgeRepos = ["mtm-test", "mtm-dev"]
-	distributionDir = "/var/lib/jenkins/jobs/Nordic-EPUB3-DTBook-Assembly/workspace/target/rpm/nordic-epub3-dtbook-assembly/RPMS/noarch/"
+}
+
+deployRpm {
+    distributionDir = "/var/lib/jenkins/jobs/Nordic-EPUB3-DTBook-Assembly/workspace/target/rpm/nordic-epub3-dtbook-assembly/RPMS/noarch/"
 }
