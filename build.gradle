@@ -1,4 +1,3 @@
-/*
 apply plugin: 'se.mtm.artifactory-rpm'
 
 buildscript {
@@ -15,7 +14,6 @@ buildscript {
 artifactoryRpm {
 	distributionDir = "/target/rpm/nordic-epub3-dtbook-assembly/RPMS/noarch/"
 }
-*/
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
