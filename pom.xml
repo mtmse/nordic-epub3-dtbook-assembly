@@ -29,7 +29,7 @@
     <properties>
 		<pipeline2.user>tpbadmin</pipeline2.user>
 		<pipeline2.group>tpbadmin</pipeline2.group>
-		<pipeline2.home>/opt/pipeline2</pipeline2.home>
+		<pipeline2.home>/opt/daisy-pipeline2</pipeline2.home>
 		<nordic.epub3.dtbook.migrator.modules>modules</nordic.epub3.dtbook.migrator.modules>
 		<rpm-maven-plugin.version>2.0.1</rpm-maven-plugin.version>
 		<guava.version>14.0.1</guava.version>
