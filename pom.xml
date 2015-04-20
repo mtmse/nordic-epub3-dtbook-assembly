@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>se.mtm.pipeline2</groupId>
+    <artifactId>nordic-epub3-dtbook-assembly</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Nordic EPUB3 DTBook Assembly :: RPM</name>
+
+    <organization>
+    	<name>Myndigheten för tillgängliga medier, MTM</name>
+		<url>http://www.mtm.se</url>
+    </organization>
+
+    <distributionManagement>
+        <repository>
+            <id>mtm-release</id>
+            <url>http://artifactory.mtm.se:8081/artifactory/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>mtm-snapshot</id>
+            <url>http://artifactory.mtm.se:8081/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+    
+    <properties>
+		<pipeline2.user>tpbadmin</pipeline2.user>
+		<pipeline2.group>tpbadmin</pipeline2.group>
+		<pipeline2.home>/opt/pipeline2</pipeline2.home>
+		<nordic.epub3.dtbook.migrator.modules>modules</nordic.epub3.dtbook.migrator.modules>
+		<rpm-maven-plugin.version>2.0.1</rpm-maven-plugin.version>
+		<guava.version>14.0.1</guava.version>
+		<commons-compress.version>1.5</commons-compress.version>
+		<jackson-core-asl.version>1.9.12</jackson-core-asl.version>
+		<jackson-mapper-asl.version>1.9.12</jackson-mapper-asl.version>
+		<xz.version>1.5</xz.version>
+		
+	    <!-- https://dl.dropboxusercontent.com/u/6370535/nordic-epub3-dtbook-migrator/index.html -->
+	    <!-- Dependencies for Pipeline 2 v1.8.1 and v1.9 (from build #131 and up) och MVN project -->
+	    
+		<!-- Latest version is 1.0.1-SNAPSHOT -->
+		<epubcheck-adapter.version>1.0.0</epubcheck-adapter.version>
+		<!-- Latest version is 4.0.0-alpha12-SNAPSHOT -->
+		<epubcheck.version>4.0.0-alpha11</epubcheck.version>
+		<!-- Latest version is 1.0.1-SNAPSHOT -->
+		<nordic-epub3-dtbook-migrator.version>1.0.1-SNAPSHOT</nordic-epub3-dtbook-migrator.version>
+  	</properties>
+
+    <build>    
+	    <plugins>
+	      <plugin>
+	        <artifactId>maven-dependency-plugin</artifactId>
+	        <executions>
+	          <execution>
+	            <id>copy-felix-launcher</id>
+	            <goals>
+	              <goal>copy</goal>
+	            </goals>
+	            <configuration>
+	              <outputDirectory>${project.basedir}/target/modules</outputDirectory>
+	              <artifactItems>
+	                <artifactItem>
+	                  <groupId>com.google.guava</groupId>
+	                  <artifactId>guava</artifactId>
+	                  <version>${guava.version}</version>
+	                  <destFileName>com.google.guava.guava-${guava.version}.jar</destFileName>
+	                </artifactItem>
+	                <artifactItem>
+	                  <groupId>org.apache.commons</groupId>
+	                  <artifactId>commons-compress</artifactId>
+	                  <version>${commons-compress.version}</version>
+	                  <destFileName>org.apache.commons.commons-compress-${commons-compress.version}.jar</destFileName>
+	                </artifactItem>
+	                <artifactItem>
+	                  <groupId>org.codehaus.jackson</groupId>
+	                  <artifactId>jackson-core-asl</artifactId>
+	                  <version>${jackson-core-asl.version}</version>
+	                  <destFileName>org.codehaus.jackson.jackson-core-asl-${jackson-core-asl.version}.jar</destFileName>
+	                </artifactItem>
+	                <artifactItem>
+	                  <groupId>org.codehaus.jackson</groupId>
+	                  <artifactId>jackson-mapper-asl</artifactId>
+	                  <version>${jackson-mapper-asl.version}</version>
+	                  <destFileName>org.codehaus.jackson.jackson-mapper-asl-${jackson-mapper-asl.version}.jar</destFileName>
+	                </artifactItem>
+	                <artifactItem>
+	                  <groupId>org.tukaani</groupId>
+	                  <artifactId>xz</artifactId>
+	                  <version>${xz.version}</version>
+	                  <destFileName>xz-${xz.version}.jar</destFileName>
+	                </artifactItem>
+	                <artifactItem>
+	                  <groupId>org.daisy.pipeline.modules</groupId>
+	                  <artifactId>epubcheck-adapter</artifactId>
+	                  <version>${epubcheck-adapter.version}</version>
+	                  <destFileName>org.daisy.pipeline.modules.epubcheck-adapter-${epubcheck-adapter.version}.jar</destFileName>
+	                </artifactItem>
+	                <artifactItem>
+	                  <groupId>org.idpf</groupId>
+	                  <artifactId>epubcheck</artifactId>
+	                  <version>${epubcheck.version}</version>
+	                  <destFileName>org.idpf.epubcheck-${epubcheck.version}.jar</destFileName>
+	                </artifactItem>
+	                <artifactItem>
+	                  <groupId>org.daisy.pipeline.modules</groupId>
+	                  <artifactId>nordic-epub3-dtbook-migrator</artifactId>
+	                  <version>${nordic-epub3-dtbook-migrator.version}</version>
+	                  <destFileName>nordic-epub3-dtbook-migrator-${nordic-epub3-dtbook-migrator.version}.jar</destFileName>
+	                </artifactItem>
+	              </artifactItems>
+	            </configuration>
+	          </execution>
+	          </executions>
+	      </plugin>
+          <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>rpm-maven-plugin</artifactId>
+              <version>${rpm-maven-plugin.version}</version>
+              <executions>
+                 <execution>
+                   <id>generate-rpm</id>
+                   <goals>
+                   	<goal>rpm</goal>
+                   </goals>
+                 </execution>
+              </executions>
+              <configuration>
+                  <license>${project.organization}</license>
+                  <group>se.mtm.pipeline2</group>
+                  <description>Nordic EPUB3 DTBook Migrator</description>
+                  <release>1.el6</release>
+                  <needarch>noarch</needarch>
+                  <mappings>
+                     <mapping>
+                         <directory>${pipeline2.home}/${nordic.epub3.dtbook.migrator.modules}</directory>
+                         <filemode>755</filemode>
+                         <username>${pipeline2.user}</username>
+                         <groupname>${pipeline2.group}</groupname>
+                         <sources>
+                            <source>
+                               <location>${project.basedir}/target/modules</location>
+                            </source>
+                         </sources>
+                     </mapping>
+                  </mappings>
+                    <preremoveScriptlet>
+                        <script>
+rm -rf /opt/pipeline2
+                        </script>
+                    </preremoveScriptlet>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
