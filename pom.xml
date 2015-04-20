@@ -131,6 +131,7 @@
                   <license>${project.organization}</license>
                   <group>se.mtm.pipeline2</group>
                   <description>Nordic EPUB3 DTBook Assembly</description>
+                  <release>1.el6</release>
                   <needarch>noarch</needarch>
                   <mappings>
                      <mapping>
