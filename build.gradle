@@ -2,22 +2,15 @@ apply plugin: 'se.mtm.artifactory-rpm'
 
 buildscript {
     repositories {
-        mavenCentral()
-        mavenLocal()
         maven {
             url "http://artifactory.mtm.se:8081/artifactory/repo"
         }
     }
     dependencies {
-        classpath 'se.mtm.gradle:gradle-artifactory-rpm-plugin:1.0.7'
+        classpath 'se.mtm.gradle:gradle-artifactory-rpm-plugin:1.0.9'
     }
 }
 
 artifactoryRpm {
-    stagingRepo = "mtm-utv"
-    purgeRepos = ["mtm-test", "mtm-dev"]
-}
-
-deployRpm {
-    distributionDir = "/var/lib/jenkins/jobs/Nordic-EPUB3-DTBook-Assembly/workspace/target/rpm/nordic-epub3-dtbook-assembly/RPMS/noarch/"
+	distributionDir = "target/rpm/nordic-epub3-dtbook-assembly/RPMS/noarch"
 }
