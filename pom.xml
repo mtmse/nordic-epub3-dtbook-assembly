@@ -130,8 +130,7 @@
               <configuration>
                   <license>${project.organization}</license>
                   <group>se.mtm.pipeline2</group>
-                  <description>Nordic EPUB3 DTBook Migrator</description>
-                  <release>1.el6</release>
+                  <description>Nordic EPUB3 DTBook Assembly</description>
                   <needarch>noarch</needarch>
                   <mappings>
                      <mapping>
