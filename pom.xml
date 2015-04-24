@@ -14,17 +14,13 @@
     	<name>Myndigheten för tillgängliga medier, MTM</name>
 		<url>http://www.mtm.se</url>
     </organization>
-
-    <distributionManagement>
-        <repository>
-            <id>mtm-release</id>
-            <url>http://artifactory.mtm.se:8081/artifactory/libs-release-local</url>
-        </repository>
-        <snapshotRepository>
-            <id>mtm-snapshot</id>
-            <url>http://artifactory.mtm.se:8081/artifactory/libs-snapshot-local</url>
-        </snapshotRepository>
-    </distributionManagement>
+    
+    <repositories>
+    	<repository>
+    		<id>sonatype-snapshot</id>
+    		<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    	</repository>
+    </repositories>
     
     <properties>
 		<pipeline2.user>tpbadmin</pipeline2.user>
@@ -40,12 +36,10 @@
 		
 	    <!-- https://dl.dropboxusercontent.com/u/6370535/nordic-epub3-dtbook-migrator/index.html -->
 	    <!-- Dependencies for Pipeline 2 v1.8.1 and v1.9 (from build #131 and up) och MVN project -->
+	    <!-- We use the snapshots that are available at https://oss.sonatype.org/content/repositories/snapshots -->
 	    
-		<!-- Latest version is 1.0.1-SNAPSHOT -->
-		<epubcheck-adapter.version>1.0.0</epubcheck-adapter.version>
-		<!-- Latest version is 4.0.0-alpha12-SNAPSHOT -->
-		<epubcheck.version>4.0.0-alpha11</epubcheck.version>
-		<!-- Latest version is 1.0.1-SNAPSHOT -->
+		<epubcheck-adapter.version>1.0.1-SNAPSHOT</epubcheck-adapter.version>
+		<epubcheck.version>4.0.0-alpha12-SNAPSHOT</epubcheck.version>
 		<nordic-epub3-dtbook-migrator.version>1.0.1-SNAPSHOT</nordic-epub3-dtbook-migrator.version>
   	</properties>
 
