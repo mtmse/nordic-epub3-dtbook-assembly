@@ -40,14 +40,14 @@
 		<jackson-core-asl.version>1.9.12</jackson-core-asl.version>
 		<jackson-mapper-asl.version>1.9.12</jackson-mapper-asl.version>
 		<xz.version>1.5</xz.version>
-		
+		<nordic-epub3-dtbook-migrator.version>1.1.0</nordic-epub3-dtbook-migrator.version>
+
 	    <!-- https://dl.dropboxusercontent.com/u/6370535/nordic-epub3-dtbook-migrator/index.html -->
 	    <!-- Dependencies for Pipeline 2 v1.8.1 and v1.9 (from build #131 and up) och MVN project -->
 	    <!-- We use the snapshots that are available at https://oss.sonatype.org/content/repositories/snapshots -->
-	    
+
 		<epubcheck-adapter.version>1.0.1-SNAPSHOT</epubcheck-adapter.version>
 		<epubcheck.version>4.0.0-alpha12-SNAPSHOT</epubcheck.version>
-		<nordic-epub3-dtbook-migrator.version>1.0.1-SNAPSHOT</nordic-epub3-dtbook-migrator.version>
   	</properties>
 
     <build>    
