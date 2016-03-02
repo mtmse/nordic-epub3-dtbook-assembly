@@ -16,17 +16,14 @@
     </organization>
     
     <repositories>
-    	<!-- 
-    	<repository>
-    		<id>sonatype-snapshot</id>
-    		<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    	</repository>
-    	 -->
+    	<!-- <repository>
+    			<id>sonatype-snapshot</id>
+    			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    		 </repository> -->
     	<repository>
     		<id>mtm-snapshot</id>
     		<url>http://codestore.mtm.se:8081/artifactory/libs-snapshot-local</url>
     	</repository>
-    	
     </repositories>
     
     <properties>
@@ -48,6 +45,10 @@
 
 		<epubcheck-adapter.version>1.0.1-SNAPSHOT</epubcheck-adapter.version>
 		<epubcheck.version>4.0.0-alpha12-SNAPSHOT</epubcheck.version>
+		
+		<!-- https://github.com/snaekobbi/pipeline-mod-mtm -->
+	    <!-- MTM specific modules for the DAISY Pipeline 2 -->
+		<braille.mod-mtm.version>1.4.0</braille.mod-mtm.version>
   	</properties>
 
     <build>    
@@ -110,6 +111,12 @@
 	                  <artifactId>nordic-epub3-dtbook-migrator</artifactId>
 	                  <version>${nordic-epub3-dtbook-migrator.version}</version>
 	                  <destFileName>nordic-epub3-dtbook-migrator-${nordic-epub3-dtbook-migrator.version}.jar</destFileName>
+	                </artifactItem>
+	                <artifactItem>
+	                  <groupId>org.daisy.pipeline.modules.braille</groupId>
+	                  <artifactId>mod-mtm</artifactId>
+	                  <version>${braille.mod-mtm.version}</version>
+	                  <destFileName>org.daisy.pipeline.modules.braille.mod-mtm-${braille.mod-mtm.version}.jar</destFileName>
 	                </artifactItem>
 	              </artifactItems>
 	            </configuration>
