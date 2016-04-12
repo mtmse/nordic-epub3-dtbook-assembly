@@ -16,10 +16,10 @@
     </organization>
     
     <repositories>
-    	<!-- <repository>
+    	<repository>
     			<id>sonatype-snapshot</id>
     			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    		 </repository> -->
+    	</repository>
     	<repository>
     		<id>mtm-snapshot</id>
     		<url>http://codestore.mtm.se:8081/artifactory/libs-snapshot-local</url>
@@ -48,7 +48,7 @@
 		
 		<!-- https://github.com/snaekobbi/pipeline-mod-mtm -->
 	    <!-- MTM specific modules for the DAISY Pipeline 2 -->
-		<braille.mod-mtm.version>1.4.0</braille.mod-mtm.version>
+		<braille.mod-mtm.version>1.4.1-SNAPSHOT</braille.mod-mtm.version>
   	</properties>
 
     <build>    
