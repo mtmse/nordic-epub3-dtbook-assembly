@@ -48,7 +48,7 @@
 		
 		<!-- https://github.com/snaekobbi/pipeline-mod-mtm -->
 	    <!-- MTM specific modules for the DAISY Pipeline 2 -->
-		<braille.mod-mtm.version>1.4.1-SNAPSHOT</braille.mod-mtm.version>
+		<braille.mod-mtm.version>1.5.0-SNAPSHOT</braille.mod-mtm.version>
   	</properties>
 
     <build>    
